@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+        scroll
+    </title>
+    <style>
+      body {
+        background: black;
+        color: whitesmoke;
+      }
+      .container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+      }
+      .item {
+        margin-bottom: 10px;
+        width: 150px;
+        height: 150px;
+        background-color: blanchedalmond;
+      }
+      .special{
+        background-color: tomato;
+      }
+      .btn-container {
+        position: fixed;
+        top: 20px;
+        right: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>      <div class="item"></div>
+      <div class="item special"></div>
+      <div class="item"></div>      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+    </div>
+    <div class="btn-container">
+        <button id="scroll-by">
+            100px 아래
+        </button>
+        <button id="scroll-to">
+            150px로 이동
+        </button>
+        <button id="scroll-into">
+            special로 이동
+        </button>
+        <div>
+            <p>
+                scroll: <span id="scroll"></span>
+            </p>
+        </div>
+    </div>
+    <script>
+        const scrollBy = document.getElementById("scroll-by");
+        const scrollTo = document.getElementById("scroll-to");
+        const scrollInto = document.getElementById("scroll-into");
+        const scroll = document.getElementById("scroll");
+        const special = document.querySelector(".special");
+        window.addEventListener("scroll",(e)=>{
+            scroll.innerText = scrollY;
+        })
+        scrollBy.addEventListener("click",(e)=>{
+            window.scrollBy({
+                top:100,
+                left:0,
+                behavior:'smooth'
+            });
+        })
+        scrollTo.addEventListener("click",(e)=>{
+            window.scrollTo({
+                top:150,
+                left:0,
+                behavior:"smooth"
+            })
+        })
+        scrollInto.addEventListener("click",(e)=>{
+            https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView
+            special.scrollIntoView({
+                block:"end",
+                behavior:"smooth"
+            });
+       
+        })
+    </script>
+  </body>
+</html>

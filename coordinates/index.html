@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coordinates</title>
+    <style>
+      body {
+        background: black;
+        color: whitesmoke;
+      }
+      .container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+      }
+      .item {
+        margin-bottom: 10px;
+        width: 150px;
+        height: 150px;
+        background-color: blanchedalmond;
+      }
+      .coordinate {
+        position: fixed;
+        top: 0px;
+        left: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+    </div>
+    <div class="coordinate">
+      <h1>
+        screenX:<span id="screenX"></span> screenY:<span id="screenY"></span>
+      </h1>
+      <p>모니터 왼쪽 상단 0,0기준으로 얼만큼 떨어진건지</p>
+      <h1>pageX:<span id="pageX"></span> pageY:<span id="pageY"></span></h1>
+      <p>페이지 왼쪽 상단 0,0기준으로 얼만큼 떨어진건지 (스크롤 포함)</p>
+      <h1>
+        clientX:<span id="clientX"></span> clientY:<span id="clientY"></span>
+      </h1>
+      <p>지금 보이는 화면 왼쪽 상단 0,0기준으로 얼만큼 떨어진건지 (스크롤 포함 X)</p> 
+      <h1>
+        rectTop:<span id="rectTop"></span> rectLeft:<span id="rectLeft"></span>
+        rectBottom:<span id="rectBottom"></span> rectRight:<span
+          id="rectRight"
+        ></span>
+      </h1>
+      <p>현재 엘리먼트가 얼만큼 떨어진건지 (스크롤 포함 X)</p>
+    </div>
+    <script>
+      const items = document.getElementsByClassName("item");
+      const screenX = document.getElementById("screenX");
+      const screenY = document.getElementById("screenY");
+      const pageX = document.getElementById("pageX");
+      const pageY = document.getElementById("pageY");
+      const clientX = document.getElementById("clientX");
+      const clientY = document.getElementById("clientY");
+      const rectTop = document.getElementById("rectTop");
+      const rectLeft = document.getElementById("rectLeft");
+      const rectBottom = document.getElementById("rectBottom");
+      const rectRight = document.getElementById("rectRight");
+      for (let i = 0; i < items.length; i++) {
+        let item = items.item(i);
+        item.addEventListener("click", (e) => {
+          const rect = item.getBoundingClientRect();
+          screenX.innerText = e.screenX;
+          screenY.innerText = e.screenY;
+          pageX.innerText = e.pageX;
+          pageY.innerText = e.pageY;
+          clientX.innerText = e.clientX;
+          clientY.innerText = e.clientY;
+          rectTop.innerText = rect.top;
+          rectLeft.innerText = rect.left;
+          rectBottom.innerText = rect.bottom;
+          rectRight.innerText = rect.right;
+        });
+      }
+    </script>
+  </body>
+</html>
